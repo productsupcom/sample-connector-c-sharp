@@ -8,13 +8,16 @@ var client = new ContainerApiClient(api);
 
 while (true)
 {
-    var product = await client.NextProduct();
-    if (product is null)
+    var products = await client.NextBatch();
+    if (products.Count == 0)
         break;
 
-    await client.Log(Level.Info, product.ToJsonString());
+    foreach (var product in products)
+    {
+        await client.Log(Level.Info, product.ToJsonString());
+        await client.Notify(Level2.Info, product.ToJsonString());
+        product["modified_by_dataservice"] = DateTime.UtcNow.ToString("o");
+    }
 
-    product["modified_by_dataservice"] = DateTime.UtcNow.ToString("o");
-
-    await client.WriteOutput(product);
+    await client.WriteOutputBatch(products);
 }
