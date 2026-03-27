@@ -3,8 +3,12 @@ using ProductsupConnector.ContainerApi;
 using Refit;
 
 var baseUrl = Environment.GetEnvironmentVariable("CONTAINER_API_URL") ?? "http://cde-container-api";
+var apiUrl = Environment.GetEnvironmentVariable("API_URL") ?? "";
 var api = RestService.For<IContainerApi>(new HttpClient { BaseAddress = new Uri(baseUrl) });
 var client = new ContainerApiClient(api);
+
+await client.Log(Level.Info, $"API_URL: {apiUrl}");
+await client.Notify(Level2.Info, $"API_URL: {apiUrl}");
 
 while (true)
 {
