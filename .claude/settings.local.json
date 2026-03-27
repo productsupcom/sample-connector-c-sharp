@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:cde.productsup.com)",
+      "WebFetch(domain:github.com)"
+    ]
+  }
+}

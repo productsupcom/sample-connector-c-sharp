@@ -1,0 +1,2888 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "CDE - Container API",
+        "description": "API container provide access to Productsup feature through a proxified access",
+        "version": "0.1.0"
+    },
+    "paths": {
+        "/activity/event-logs": {
+            "post": {
+                "tags": [
+                    "Activity"
+                ],
+                "summary": "Save event logs.",
+                "operationId": "save_event_logs",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/save_event_logs_input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "success"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "success"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "additional_user_info": {
+                                                    "type": "string",
+                                                    "example": "This key should be provided in the payload."
+                                                },
+                                                "events": {
+                                                    "type": "string",
+                                                    "example": "This key should be provided in the payload."
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "additional_user_info": "This key should be provided in the payload.",
+                                                "events": "This key should be provided in the payload."
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Validation failed",
+                                        "errors": {
+                                            "additional_user_info": "This key should be provided in the payload.",
+                                            "events": "This key should be provided in the payload."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/activity/logs/{level}": {
+            "post": {
+                "tags": [
+                    "Activity",
+                    "Log"
+                ],
+                "summary": "Add log.",
+                "operationId": "add_log",
+                "parameters": [
+                    {
+                        "name": "level",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "debug",
+                                "info",
+                                "notice",
+                                "warning",
+                                "error",
+                                "critical",
+                                "alert",
+                                "emergency"
+                            ]
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_log_input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "success"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "success"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "This value should not be blank."
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "message": "This value should not be blank."
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Validation failed",
+                                        "errors": {
+                                            "message": "This value should not be blank."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/activity/notifications/{level}": {
+            "post": {
+                "tags": [
+                    "Activity"
+                ],
+                "summary": "Add notification.",
+                "operationId": "add_notification",
+                "parameters": [
+                    {
+                        "name": "level",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "info",
+                                "notice",
+                                "warning",
+                                "error",
+                                "success"
+                            ]
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_notification_input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "success"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "success"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "This value should not be blank."
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "message": "This value should not be blank."
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Validation failed",
+                                        "errors": {
+                                            "message": "This value should not be blank."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/buckets/delete/{remoteFile}": {
+            "delete": {
+                "tags": [
+                    "Buckets"
+                ],
+                "summary": "Delete file from bucket.",
+                "operationId": "bucket_delete_file",
+                "parameters": [
+                    {
+                        "name": "remoteFile",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^.+$"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "remoteFile": {
+                                                    "type": "string",
+                                                    "example": "Invalid key."
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "remoteFile": "Invalid key."
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Validation failed",
+                                        "errors": {
+                                            "remoteFile": "Invalid key."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/buckets/exchange/download/{remoteFile}": {
+            "get": {
+                "tags": [
+                    "Buckets"
+                ],
+                "summary": "Download file from the Bucket to exchange folder",
+                "description": "This endpoint is now deprecated and should no longer be used. Please use GET /buckets/stream/{key} instead.",
+                "operationId": "bucket_exchange_download",
+                "parameters": [
+                    {
+                        "name": "remoteFile",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^.+$"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "File has been downloaded."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "File has been downloaded."
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "remoteFile": {
+                                                    "type": "string",
+                                                    "example": "Invalid key."
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "remoteFile": "Invalid key."
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Validation failed",
+                                        "errors": {
+                                            "remoteFile": "Invalid key."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/buckets/stream/{key}": {
+            "get": {
+                "tags": [
+                    "Buckets"
+                ],
+                "summary": "Stream data from a bucket key.",
+                "operationId": "stream_from_bucket",
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/octet-stream": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "Buckets"
+                ],
+                "summary": "Stream data to a bucket key.",
+                "operationId": "stream_to_bucket",
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/octet-stream": {
+                            "schema": {
+                                "type": "string",
+                                "format": "binary"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Data streamed successfully to bucket key."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Data streamed successfully to bucket key."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/buckets/exchange/upload/{remoteFile}": {
+            "put": {
+                "tags": [
+                    "Buckets"
+                ],
+                "summary": "Upload file from exchange folder to the Bucket",
+                "description": "This endpoint is now deprecated and should no longer be used. Please use PUT /buckets/stream/{key} instead.",
+                "operationId": "bucket_exchange_upload",
+                "parameters": [
+                    {
+                        "name": "remoteFile",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^.+$"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/bucket_exchange_upload_input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "File has been uploaded."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "File has been uploaded."
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "sourceFile": {
+                                                    "type": "string",
+                                                    "example": "File not found."
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "sourceFile": "File not found."
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Validation failed",
+                                        "errors": {
+                                            "sourceFile": "File not found."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/csa-classifications": {
+            "get": {
+                "tags": [
+                    "Category Specific Attributes"
+                ],
+                "summary": "List of Category Specific Attributes (Classifications)",
+                "operationId": "csa_classifications_list",
+                "parameters": [
+                    {
+                        "name": "classification-path",
+                        "in": "query",
+                        "description": "Name of CSA (classification) column",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "successful operation"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "classification-id": {
+                                                        "type": "integer",
+                                                        "example": 111
+                                                    },
+                                                    "classification-path": {
+                                                        "type": "string",
+                                                        "example": "First category"
+                                                    }
+                                                },
+                                                "type": "object",
+                                                "example": {
+                                                    "classification-id": 111,
+                                                    "classification-path": "First category"
+                                                }
+                                            },
+                                            "example": [
+                                                {
+                                                    "classification-id": 111,
+                                                    "classification-path": "First category"
+                                                },
+                                                {
+                                                    "classification-id": 222,
+                                                    "classification-path": "Second category"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "successful operation",
+                                        "data": [
+                                            {
+                                                "classification-id": 111,
+                                                "classification-path": "First category"
+                                            },
+                                            {
+                                                "classification-id": 222,
+                                                "classification-path": "Second category"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/items/{type}/count": {
+            "get": {
+                "tags": [
+                    "File",
+                    "Read"
+                ],
+                "summary": "Fetch row count for specified file",
+                "description": "Will return the row count of the file. WARNING: Type \"full\" is deprecated. Use \"input\" instead.",
+                "operationId": "items_count_input_file",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^full|input|new|modified|unchanged|deleted$"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Items counted successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer",
+                                                    "example": 0,
+                                                    "nullable": true
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "count": 0
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Items counted successfully.",
+                                        "data": {
+                                            "count": 0
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/list/on-transport": {
+            "get": {
+                "tags": [
+                    "File",
+                    "Storage"
+                ],
+                "summary": "List folder content on transport",
+                "operationId": "list_on_transport",
+                "parameters": [
+                    {
+                        "name": "site_channel_id",
+                        "in": "query",
+                        "description": "Site Channel ID",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Bad request."
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "site_channel_id": {
+                                                    "type": "string",
+                                                    "example": "This value does not have valid integer."
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "site_channel_id": "This value does not have valid integer."
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Bad request.",
+                                        "errors": {
+                                            "site_channel_id": "This value does not have valid integer."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/logs/{level}": {
+            "post": {
+                "tags": [
+                    "Log"
+                ],
+                "summary": "Write to log.",
+                "operationId": "write_log",
+                "parameters": [
+                    {
+                        "name": "level",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^debug|info|notice|warning|error|critical|alert|emergency|success$",
+                            "enum": [
+                                "debug",
+                                "info",
+                                "notice",
+                                "warning",
+                                "error",
+                                "critical",
+                                "alert",
+                                "emergency",
+                                "success"
+                            ]
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/write_log_input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Written successfully."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Written successfully."
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "This value should not be blank."
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "message": "This value should not be blank."
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Validation failed",
+                                        "errors": {
+                                            "message": "This value should not be blank."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/ping": {
+            "get": {
+                "tags": [
+                    "Misc"
+                ],
+                "summary": "Check if the server is live.",
+                "operationId": "ping",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "pong"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "pong"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/processes/log": {
+            "post": {
+                "tags": [
+                    "Process"
+                ],
+                "summary": "Log all processes to internal log",
+                "description": "Log all processes to internal log",
+                "operationId": "log_all_processes",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Written successfully."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Written successfully."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/processes/pending": {
+            "get": {
+                "tags": [
+                    "Process"
+                ],
+                "summary": "Show pending processes",
+                "description": "Display pending processes details",
+                "operationId": "show_pending_processes",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "",
+                                            "nullable": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "example": "019c9023-71fd-7327-ae61-64316dd94a9e"
+                                                    },
+                                                    "status": {
+                                                        "type": "string",
+                                                        "example": "running"
+                                                    },
+                                                    "exit-code": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "seconds-remaining": {
+                                                        "type": "integer",
+                                                        "example": 21600
+                                                    }
+                                                },
+                                                "type": "object",
+                                                "example": {
+                                                    "id": "019c9023-71fd-7327-ae61-64316dd94a9e",
+                                                    "status": "running",
+                                                    "exit-code": 1,
+                                                    "seconds-remaining": 21600
+                                                }
+                                            },
+                                            "example": [
+                                                {
+                                                    "id": "019c9023-71fd-7327-ae61-64316dd94a9e",
+                                                    "status": "running",
+                                                    "exit-code": 1,
+                                                    "seconds-remaining": 21600
+                                                },
+                                                {
+                                                    "id": "019c9023-71fe-70d8-bff6-c306f743e4c1",
+                                                    "status": "running",
+                                                    "exit-code": null,
+                                                    "seconds-remaining": 21600
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "",
+                                        "data": [
+                                            {
+                                                "id": "019c9023-71fd-7327-ae61-64316dd94a9e",
+                                                "status": "running",
+                                                "exit-code": 1,
+                                                "seconds-remaining": 21600
+                                            },
+                                            {
+                                                "id": "019c9023-71fe-70d8-bff6-c306f743e4c1",
+                                                "status": "running",
+                                                "exit-code": null,
+                                                "seconds-remaining": 21600
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/processes/{uuid}": {
+            "get": {
+                "tags": [
+                    "Process"
+                ],
+                "summary": "Show a process.",
+                "description": "Display process details",
+                "operationId": "show_process",
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "",
+                                            "nullable": true
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "019c9023-7280-745e-9998-534e47905b81"
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "running"
+                                                },
+                                                "exit-code": {
+                                                    "type": "integer",
+                                                    "example": 12
+                                                },
+                                                "seconds-remaining": {
+                                                    "type": "integer",
+                                                    "example": 21600
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "id": "019c9023-7280-745e-9998-534e47905b81",
+                                                "status": "running",
+                                                "exit-code": 12,
+                                                "seconds-remaining": 21600
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "",
+                                        "data": {
+                                            "id": "019c9023-7280-745e-9998-534e47905b81",
+                                            "status": "running",
+                                            "exit-code": 12,
+                                            "seconds-remaining": 21600
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Process not found."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Process not found."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/input/{type}/next_batch": {
+            "get": {
+                "tags": [
+                    "File",
+                    "Read"
+                ],
+                "summary": "Fetch the next batch from the specified file",
+                "description": "Will return the next batch of items from the file, if no more: empty response. WARNING: Type \"full\" is deprecated. Use \"input\" instead.",
+                "operationId": "read_input_file_next_batch",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^full|input|new|modified|unchanged|deleted$"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "description": "Size of the batch (should be 0 < size < 1000), default 1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "show-hidden",
+                        "in": "query",
+                        "description": "Show or hide columns with double underscore in name. Hidden by default",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "classification-id",
+                        "in": "query",
+                        "description": "Classification ID for CSA export-delta",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "",
+                                            "nullable": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object"
+                                            },
+                                            "example": [
+                                                {
+                                                    "id": "1",
+                                                    "name": "first product",
+                                                    "column_uniqueness_1": "ValueA",
+                                                    "column_uniqueness_2": "ValueA",
+                                                    "___some_column": "value",
+                                                    "___skipped_export": "",
+                                                    "sort+/flag": "1",
+                                                    "+column": "test",
+                                                    "/column": "test"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "",
+                                        "data": [
+                                            {
+                                                "id": "1",
+                                                "name": "first product",
+                                                "column_uniqueness_1": "ValueA",
+                                                "column_uniqueness_2": "ValueA",
+                                                "___some_column": "value",
+                                                "___skipped_export": "",
+                                                "sort+/flag": "1",
+                                                "+column": "test",
+                                                "/column": "test"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Requested file not provided."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Requested file not provided."
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Bad request."
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "size": {
+                                                    "type": "string",
+                                                    "example": "This value does not have valid integer."
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "size": "This value does not have valid integer."
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Bad request.",
+                                        "errors": {
+                                            "size": "This value does not have valid integer."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Invalid file."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Invalid file."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/input/{type}/next": {
+            "get": {
+                "tags": [
+                    "File",
+                    "Read"
+                ],
+                "summary": "Fetch the next item from the specified file",
+                "description": "Will return the next item from the file, if no more: no-content response. WARNING: Type \"full\" is deprecated. Use \"input\" instead.",
+                "operationId": "read_input_file_next",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^full|input|new|modified|unchanged|deleted$"
+                        }
+                    },
+                    {
+                        "name": "show-hidden",
+                        "in": "query",
+                        "description": "Show or hide columns with double underscore in name. Hidden by default",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "classification-id",
+                        "in": "query",
+                        "description": "Classification ID for CSA export-delta",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Requested file not provided."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Requested file not provided."
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Invalid file."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Invalid file."
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "",
+                                            "nullable": true
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "not-needed": "not-needed",
+                                                "name": "product_1",
+                                                "___some_column": "value",
+                                                "___skipped_export": ""
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "",
+                                        "data": {
+                                            "not-needed": "not-needed",
+                                            "name": "product_1",
+                                            "___some_column": "value",
+                                            "___skipped_export": ""
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Bad request."
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "classification-id": {
+                                                    "type": "string",
+                                                    "example": "This value does not have valid integer."
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "classification-id": "This value does not have valid integer."
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Bad request.",
+                                        "errors": {
+                                            "classification-id": "This value does not have valid integer."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/input/{type}/restart": {
+            "get": {
+                "tags": [
+                    "File",
+                    "Read"
+                ],
+                "summary": "Reset the cursor for specified file",
+                "description": "Resetting the cursor means the next item/batch will start from the beginning again. WARNING: Type \"full\" is deprecated. Use \"input\" instead.",
+                "operationId": "restart_cursor_input_file",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^full|input|new|modified|unchanged|deleted$"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "successful request"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "successful request"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/stream/input/{type}": {
+            "get": {
+                "tags": [
+                    "File",
+                    "Read"
+                ],
+                "summary": "Stream from input.",
+                "description": "Will stream items from the input, if no more: empty response. WARNING: Type \"full\" is deprecated. Use \"input\" instead.",
+                "operationId": "stream_from_input",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^full|input|new|modified|unchanged|deleted$"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "description": "Size of the batch (should be 0 < size < 1000), default 1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "show-hidden",
+                        "in": "query",
+                        "description": "Show or hide columns with double underscore in name. Hidden by default",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "classification-id",
+                        "in": "query",
+                        "description": "Classification ID for CSA export-delta",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/run-storage/unspecified": {
+            "get": {
+                "tags": [
+                    "Run storage"
+                ],
+                "summary": "Collection of unspecified files in run storage",
+                "operationId": "run_storage_unspecified_file_collection",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "successful operation"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "unspecified_1.name"
+                                                    },
+                                                    "type": {
+                                                        "type": "string",
+                                                        "example": "unspecified"
+                                                    }
+                                                },
+                                                "type": "object",
+                                                "example": {
+                                                    "name": "unspecified_1.name",
+                                                    "type": "unspecified"
+                                                }
+                                            },
+                                            "example": [
+                                                {
+                                                    "name": "unspecified_1.name",
+                                                    "type": "unspecified"
+                                                },
+                                                {
+                                                    "name": "unspecified_2.name",
+                                                    "type": "unspecified"
+                                                },
+                                                {
+                                                    "name": "unspecified_3.name",
+                                                    "type": "unspecified"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "successful operation",
+                                        "data": [
+                                            {
+                                                "name": "unspecified_1.name",
+                                                "type": "unspecified"
+                                            },
+                                            {
+                                                "name": "unspecified_2.name",
+                                                "type": "unspecified"
+                                            },
+                                            {
+                                                "name": "unspecified_3.name",
+                                                "type": "unspecified"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/run-storage/unspecified/{filename}": {
+            "get": {
+                "tags": [
+                    "Run storage"
+                ],
+                "summary": "Stream content of unspecified file from run storage.",
+                "operationId": "run_storage_stream_unspecified_file",
+                "parameters": [
+                    {
+                        "name": "filename",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/octet-stream": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "Run storage"
+                ],
+                "summary": "Stream file to run storage.",
+                "operationId": "run_storage_upload_unspecified_file",
+                "parameters": [
+                    {
+                        "name": "filename",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/octet-stream": {
+                            "schema": {
+                                "type": "string",
+                                "format": "binary"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Data streamed successfully."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Data streamed successfully."
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "File size reached maximum."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "File size reached maximum."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/async-feedback-config": {
+            "post": {
+                "tags": [
+                    "Async Feedback Config"
+                ],
+                "summary": "Save async feedback config to local filesystem.",
+                "operationId": "save_async_feedback_config",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/save_async_feedback_config_input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Async feedback config saved successfully."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Async feedback config saved successfully."
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "connectorConfig": {
+                                                    "type": "string",
+                                                    "example": "This value should not be blank."
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "connectorConfig": "This value should not be blank."
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Validation failed",
+                                        "errors": {
+                                            "connectorConfig": "This value should not be blank."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/exports/columns-order": {
+            "get": {
+                "tags": [
+                    "File",
+                    "Read"
+                ],
+                "summary": "Platform defined column order for output file.",
+                "operationId": "show_column_order",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Successfully retrieved column order."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "order": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    },
+                                                    "example": [
+                                                        "id",
+                                                        "name",
+                                                        "title"
+                                                    ]
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "order": [
+                                                    "id",
+                                                    "name",
+                                                    "title"
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Successfully retrieved column order.",
+                                        "data": {
+                                            "order": [
+                                                "id",
+                                                "name",
+                                                "title"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/items/{type}/headers": {
+            "get": {
+                "tags": [
+                    "File",
+                    "Read"
+                ],
+                "summary": "Show headers of input file.",
+                "description": "Show headers of input file. WARNING: Type \"full\" is deprecated. Use \"input\" instead.",
+                "operationId": "show_headers_input_file",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^full|input|new|modified|unchanged|deleted$"
+                        }
+                    },
+                    {
+                        "name": "show-hidden",
+                        "in": "query",
+                        "description": "Show or hide headers with double underscore in name. Hidden by default",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "",
+                                            "nullable": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "example": [
+                                                "id",
+                                                "name",
+                                                "___some_column",
+                                                "___skipped_export",
+                                                "column-a",
+                                                "columnB",
+                                                "column-C",
+                                                "column_D"
+                                            ]
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "",
+                                        "data": [
+                                            "id",
+                                            "name",
+                                            "___some_column",
+                                            "___skipped_export",
+                                            "column-a",
+                                            "columnB",
+                                            "column-C",
+                                            "column_D"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/storage/internal": {
+            "post": {
+                "tags": [
+                    "File",
+                    "Storage"
+                ],
+                "summary": "Store folder content to internal storage",
+                "operationId": "store_to_internal_storage",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/store_to_internal_storage_input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Upload process started. You can check the status of the process via api with the given id."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "360b1a6f-e3cc-4d03-aef7-9c69428d1578"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "id": "360b1a6f-e3cc-4d03-aef7-9c69428d1578"
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Upload process started. You can check the status of the process via api with the given id.",
+                                        "data": {
+                                            "id": "360b1a6f-e3cc-4d03-aef7-9c69428d1578"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "sourceFile": {
+                                                    "type": "string",
+                                                    "example": "File not found."
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "sourceFile": "File not found."
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Validation failed",
+                                        "errors": {
+                                            "sourceFile": "File not found."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/store/to-transport": {
+            "post": {
+                "tags": [
+                    "File",
+                    "Storage"
+                ],
+                "summary": "Store folder content to transport",
+                "operationId": "store_to_transport",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/store_to_transport_input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Upload process started. You can check the status of the process via api with the given id."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "4acfece6-8c4f-4a49-8876-56b9caa992d2"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "id": "4acfece6-8c4f-4a49-8876-56b9caa992d2"
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Upload process started. You can check the status of the process via api with the given id.",
+                                        "data": {
+                                            "id": "4acfece6-8c4f-4a49-8876-56b9caa992d2"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "sourceFile": {
+                                                    "type": "string",
+                                                    "example": "File not found."
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "sourceFile": "File not found."
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Validation failed",
+                                        "errors": {
+                                            "sourceFile": "File not found."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/upload/to-transport": {
+            "post": {
+                "tags": [
+                    "File",
+                    "Storage"
+                ],
+                "summary": "Upload folder content to transport",
+                "operationId": "upload_to_transport",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/upload_to_transport_input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "File has been uploaded."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "File has been uploaded."
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "sourceFile": {
+                                                    "type": "string",
+                                                    "example": "File not found."
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "sourceFile": "File not found."
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Validation failed",
+                                        "errors": {
+                                            "sourceFile": "File not found."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/output/{type}/close": {
+            "post": {
+                "tags": [
+                    "File",
+                    "Write"
+                ],
+                "summary": "Close output file",
+                "description": "Although this route works, it is intended to be use by a CLI command for maintenance reasons",
+                "operationId": "close_output_file",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^output|feedback$"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/stream/output/{type}": {
+            "post": {
+                "tags": [
+                    "File",
+                    "Write"
+                ],
+                "summary": "Stream to output.",
+                "operationId": "stream_to_output",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^output|feedback$"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Written successfully."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Written successfully."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/output/{type}": {
+            "post": {
+                "tags": [
+                    "File",
+                    "Write"
+                ],
+                "summary": "Write to output file",
+                "operationId": "write_to_output_file",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^output|feedback$"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/write_to_output_file_input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Written successfully."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Written successfully."
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "data": {
+                                                    "type": "string",
+                                                    "example": "This value should be an array of items."
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "data": "This value should be an array of items."
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Validation failed",
+                                        "errors": {
+                                            "data": "This value should be an array of items."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "File size reached maximum."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "File size reached maximum."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/output/output/nested": {
+            "post": {
+                "tags": [
+                    "Data Store",
+                    "Write"
+                ],
+                "summary": "Write nested data to output data store.",
+                "operationId": "write_nested_to_output_data_store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/write_nested_to_output_data_store_input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Written successfully."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Written successfully."
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "data": {
+                                                    "type": "string",
+                                                    "example": "This value should be an array of items."
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "data": "This value should be an array of items."
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Validation failed",
+                                        "errors": {
+                                            "data": "This value should be an array of items."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "save_event_logs_input": {
+                "properties": {
+                    "additional_user_info": {
+                        "properties": {
+                            "Errors": {
+                                "type": "string",
+                                "example": "Some errors"
+                            },
+                            "Description": {
+                                "type": "string",
+                                "example": "Some description"
+                            }
+                        },
+                        "type": "object",
+                        "example": {
+                            "Errors": "Some errors",
+                            "Description": "Some description"
+                        }
+                    },
+                    "events": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "id": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "context": {
+                                    "properties": {
+                                        "event-0-key": {
+                                            "type": "string",
+                                            "example": "event-0-value"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "event-0-key": "event-0-value"
+                                    }
+                                }
+                            },
+                            "type": "object",
+                            "example": {
+                                "id": 1,
+                                "context": {
+                                    "event-0-key": "event-0-value"
+                                }
+                            }
+                        },
+                        "example": [
+                            {
+                                "id": 1,
+                                "context": {
+                                    "event-0-key": "event-0-value"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "context": {
+                                    "event-1-key": "event-1-value"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "additional_user_info": {
+                        "Errors": "Some errors",
+                        "Description": "Some description"
+                    },
+                    "events": [
+                        {
+                            "id": 1,
+                            "context": {
+                                "event-0-key": "event-0-value"
+                            }
+                        },
+                        {
+                            "id": 1,
+                            "context": {
+                                "event-1-key": "event-1-value"
+                            }
+                        }
+                    ]
+                }
+            },
+            "add_log_input": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "example": "Emergency message"
+                    },
+                    "context": {
+                        "type": "object",
+                        "example": {
+                            "code": 10
+                        }
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "message": "Emergency message",
+                    "context": {
+                        "code": 10
+                    }
+                }
+            },
+            "add_notification_input": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "example": "Info message"
+                    },
+                    "context": {
+                        "type": "object",
+                        "example": {
+                            "code": 10
+                        }
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "message": "Info message",
+                    "context": {
+                        "code": 10
+                    }
+                }
+            },
+            "bucket_exchange_upload_input": {
+                "properties": {
+                    "source_file": {
+                        "type": "string",
+                        "example": "/example-subdirectory/example_file.txt"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "source_file": "/example-subdirectory/example_file.txt"
+                }
+            },
+            "write_log_input": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "example": "Success message"
+                    },
+                    "context": {
+                        "type": "object",
+                        "example": {
+                            "code": 10
+                        }
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "message": "Success message",
+                    "context": {
+                        "code": 10
+                    }
+                }
+            },
+            "write_nested_to_output_data_store_input": {
+                "properties": {
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "ProductID": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "ProductName": {
+                                    "type": "string",
+                                    "example": "Product A"
+                                },
+                                "nested": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "example": "nested-A-1"
+                                            }
+                                        },
+                                        "type": "object",
+                                        "example": {
+                                            "id": "nested-A-1"
+                                        }
+                                    },
+                                    "example": [
+                                        {
+                                            "id": "nested-A-1"
+                                        },
+                                        {
+                                            "id": "nested-A-2"
+                                        }
+                                    ]
+                                },
+                                "___restricted_data": {
+                                    "type": "boolean",
+                                    "example": true
+                                }
+                            },
+                            "type": "object",
+                            "example": {
+                                "ProductID": 1,
+                                "ProductName": "Product A",
+                                "nested": [
+                                    {
+                                        "id": "nested-A-1"
+                                    },
+                                    {
+                                        "id": "nested-A-2"
+                                    }
+                                ],
+                                "___restricted_data": true
+                            }
+                        },
+                        "example": [
+                            {
+                                "ProductID": 1,
+                                "ProductName": "Product A",
+                                "nested": [
+                                    {
+                                        "id": "nested-A-1"
+                                    },
+                                    {
+                                        "id": "nested-A-2"
+                                    }
+                                ],
+                                "___restricted_data": true
+                            },
+                            {
+                                "ProductID": 2,
+                                "ProductName": "Product B",
+                                "nested": [
+                                    {
+                                        "id": "nested-B-1"
+                                    },
+                                    {
+                                        "id": "nested-B-2"
+                                    }
+                                ],
+                                "___restricted_data": true
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "data": [
+                        {
+                            "ProductID": 1,
+                            "ProductName": "Product A",
+                            "nested": [
+                                {
+                                    "id": "nested-A-1"
+                                },
+                                {
+                                    "id": "nested-A-2"
+                                }
+                            ],
+                            "___restricted_data": true
+                        },
+                        {
+                            "ProductID": 2,
+                            "ProductName": "Product B",
+                            "nested": [
+                                {
+                                    "id": "nested-B-1"
+                                },
+                                {
+                                    "id": "nested-B-2"
+                                }
+                            ],
+                            "___restricted_data": true
+                        }
+                    ]
+                }
+            },
+            "save_async_feedback_config_input": {
+                "required": [
+                    "connector-config"
+                ],
+                "properties": {
+                    "connector-config": {
+                        "type": "object",
+                        "example": {
+                            "name1": "value1",
+                            "name2": "value2"
+                        }
+                    },
+                    "service-config": {
+                        "type": "object",
+                        "example": {
+                            "name3": "value3",
+                            "name4": {
+                                "key1": "value4",
+                                "key2": "value5"
+                            }
+                        }
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "connector-config": {
+                        "name1": "value1",
+                        "name2": "value2"
+                    },
+                    "service-config": {
+                        "name3": "value3",
+                        "name4": {
+                            "key1": "value4",
+                            "key2": "value5"
+                        }
+                    }
+                }
+            },
+            "store_to_internal_storage_input": {
+                "properties": {
+                    "source_file": {
+                        "type": "string",
+                        "example": "/example-subdirectory/example_file.txt"
+                    },
+                    "remote_file": {
+                        "type": "string",
+                        "example": "/remote-folder/remote_file.txt"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "source_file": "/example-subdirectory/example_file.txt",
+                    "remote_file": "/remote-folder/remote_file.txt"
+                }
+            },
+            "store_to_transport_input": {
+                "properties": {
+                    "source_file": {
+                        "type": "string",
+                        "example": "/example-subdirectory/example_file.txt"
+                    },
+                    "remote_file": {
+                        "type": "string",
+                        "example": "/remote-folder/remote_file.txt"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "source_file": "/example-subdirectory/example_file.txt",
+                    "remote_file": "/remote-folder/remote_file.txt"
+                }
+            },
+            "upload_to_transport_input": {
+                "properties": {
+                    "source_file": {
+                        "type": "string",
+                        "example": "/example-subdirectory/example_file.txt"
+                    },
+                    "remote_file": {
+                        "type": "string",
+                        "example": "/remote-folder/remote_file.txt"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "source_file": "/example-subdirectory/example_file.txt",
+                    "remote_file": "/remote-folder/remote_file.txt"
+                }
+            },
+            "write_to_output_file_input": {
+                "properties": {
+                    "meta": {
+                        "properties": {
+                            "separator": {
+                                "type": "string",
+                                "example": "-"
+                            }
+                        },
+                        "type": "object",
+                        "example": {
+                            "separator": "-"
+                        }
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "type": "object"
+                        },
+                        "example": [
+                            {
+                                "id": 1,
+                                "taxon-0-id": 11,
+                                "taxon-0-name": "taxon0"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "meta": {
+                        "separator": "-"
+                    },
+                    "data": [
+                        {
+                            "id": 1,
+                            "taxon-0-id": 11,
+                            "taxon-0-name": "taxon0"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
