@@ -1,0 +1,7 @@
+services:
+  connector:
+    image: mcr.microsoft.com/dotnet/sdk:9.0
+    working_dir: /app/src/ProductsupConnector
+    volumes:
+      - ./src:/app/src
+    command: dotnet watch run
