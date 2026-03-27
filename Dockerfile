@@ -10,4 +10,4 @@ RUN dotnet publish src/ProductsupConnector/ProductsupConnector.csproj -c Release
 FROM mcr.microsoft.com/dotnet/runtime:9.0
 WORKDIR /app
 COPY --from=build /out .
-ENTRYPOINT ["dotnet", "ProductsupConnector.dll"]
+CMD ["dotnet", "ProductsupConnector.dll"]
