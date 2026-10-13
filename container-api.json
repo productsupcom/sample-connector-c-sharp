@@ -178,6 +178,25 @@
                                 }
                             }
                         }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Logs rate limit exceeded."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Logs rate limit exceeded."
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false
@@ -266,6 +285,25 @@
                                         "errors": {
                                             "message": "This value should not be blank."
                                         }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Notifications rate limit exceeded."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Notifications rate limit exceeded."
                                     }
                                 }
                             }
@@ -874,6 +912,25 @@
                                 }
                             }
                         }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Logs rate limit exceeded."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Logs rate limit exceeded."
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": true
@@ -968,7 +1025,7 @@
                                                 "properties": {
                                                     "id": {
                                                         "type": "string",
-                                                        "example": "019c9023-71fd-7327-ae61-64316dd94a9e"
+                                                        "example": "019f8d6a-b6e6-71b3-8387-a1ed32be3d13"
                                                     },
                                                     "status": {
                                                         "type": "string",
@@ -985,7 +1042,7 @@
                                                 },
                                                 "type": "object",
                                                 "example": {
-                                                    "id": "019c9023-71fd-7327-ae61-64316dd94a9e",
+                                                    "id": "019f8d6a-b6e6-71b3-8387-a1ed32be3d13",
                                                     "status": "running",
                                                     "exit-code": 1,
                                                     "seconds-remaining": 21600
@@ -993,13 +1050,13 @@
                                             },
                                             "example": [
                                                 {
-                                                    "id": "019c9023-71fd-7327-ae61-64316dd94a9e",
+                                                    "id": "019f8d6a-b6e6-71b3-8387-a1ed32be3d13",
                                                     "status": "running",
                                                     "exit-code": 1,
                                                     "seconds-remaining": 21600
                                                 },
                                                 {
-                                                    "id": "019c9023-71fe-70d8-bff6-c306f743e4c1",
+                                                    "id": "019f8d6a-b6e7-78db-bc73-821c8c5a2746",
                                                     "status": "running",
                                                     "exit-code": null,
                                                     "seconds-remaining": 21600
@@ -1012,13 +1069,13 @@
                                         "message": "",
                                         "data": [
                                             {
-                                                "id": "019c9023-71fd-7327-ae61-64316dd94a9e",
+                                                "id": "019f8d6a-b6e6-71b3-8387-a1ed32be3d13",
                                                 "status": "running",
                                                 "exit-code": 1,
                                                 "seconds-remaining": 21600
                                             },
                                             {
-                                                "id": "019c9023-71fe-70d8-bff6-c306f743e4c1",
+                                                "id": "019f8d6a-b6e7-78db-bc73-821c8c5a2746",
                                                 "status": "running",
                                                 "exit-code": null,
                                                 "seconds-remaining": 21600
@@ -1068,7 +1125,7 @@
                                             "properties": {
                                                 "id": {
                                                     "type": "string",
-                                                    "example": "019c9023-7280-745e-9998-534e47905b81"
+                                                    "example": "019f8d6a-b801-7426-9e03-c07c65178385"
                                                 },
                                                 "status": {
                                                     "type": "string",
@@ -1085,7 +1142,7 @@
                                             },
                                             "type": "object",
                                             "example": {
-                                                "id": "019c9023-7280-745e-9998-534e47905b81",
+                                                "id": "019f8d6a-b801-7426-9e03-c07c65178385",
                                                 "status": "running",
                                                 "exit-code": 12,
                                                 "seconds-remaining": 21600
@@ -1096,7 +1153,7 @@
                                     "example": {
                                         "message": "",
                                         "data": {
-                                            "id": "019c9023-7280-745e-9998-534e47905b81",
+                                            "id": "019f8d6a-b801-7426-9e03-c07c65178385",
                                             "status": "running",
                                             "exit-code": 12,
                                             "seconds-remaining": 21600
@@ -1991,12 +2048,12 @@
                                             "properties": {
                                                 "id": {
                                                     "type": "string",
-                                                    "example": "360b1a6f-e3cc-4d03-aef7-9c69428d1578"
+                                                    "example": "c507561a-7a84-4b0d-a372-6103ab7f97f2"
                                                 }
                                             },
                                             "type": "object",
                                             "example": {
-                                                "id": "360b1a6f-e3cc-4d03-aef7-9c69428d1578"
+                                                "id": "c507561a-7a84-4b0d-a372-6103ab7f97f2"
                                             }
                                         }
                                     },
@@ -2004,7 +2061,7 @@
                                     "example": {
                                         "message": "Upload process started. You can check the status of the process via api with the given id.",
                                         "data": {
-                                            "id": "360b1a6f-e3cc-4d03-aef7-9c69428d1578"
+                                            "id": "c507561a-7a84-4b0d-a372-6103ab7f97f2"
                                         }
                                     }
                                 }
@@ -2023,14 +2080,14 @@
                                         },
                                         "errors": {
                                             "properties": {
-                                                "sourceFile": {
+                                                "remoteFile": {
                                                     "type": "string",
-                                                    "example": "File not found."
+                                                    "example": "Filename contains disallowed character: \"|\"."
                                                 }
                                             },
                                             "type": "object",
                                             "example": {
-                                                "sourceFile": "File not found."
+                                                "remoteFile": "Filename contains disallowed character: \"|\"."
                                             }
                                         }
                                     },
@@ -2038,7 +2095,7 @@
                                     "example": {
                                         "message": "Validation failed",
                                         "errors": {
-                                            "sourceFile": "File not found."
+                                            "remoteFile": "Filename contains disallowed character: \"|\"."
                                         }
                                     }
                                 }
@@ -2082,12 +2139,12 @@
                                             "properties": {
                                                 "id": {
                                                     "type": "string",
-                                                    "example": "4acfece6-8c4f-4a49-8876-56b9caa992d2"
+                                                    "example": "606cb5cc-8fb8-483e-b325-dca3f7777fbc"
                                                 }
                                             },
                                             "type": "object",
                                             "example": {
-                                                "id": "4acfece6-8c4f-4a49-8876-56b9caa992d2"
+                                                "id": "606cb5cc-8fb8-483e-b325-dca3f7777fbc"
                                             }
                                         }
                                     },
@@ -2095,7 +2152,7 @@
                                     "example": {
                                         "message": "Upload process started. You can check the status of the process via api with the given id.",
                                         "data": {
-                                            "id": "4acfece6-8c4f-4a49-8876-56b9caa992d2"
+                                            "id": "606cb5cc-8fb8-483e-b325-dca3f7777fbc"
                                         }
                                     }
                                 }
@@ -2114,14 +2171,14 @@
                                         },
                                         "errors": {
                                             "properties": {
-                                                "sourceFile": {
+                                                "remoteFile": {
                                                     "type": "string",
-                                                    "example": "File not found."
+                                                    "example": "Filename contains disallowed character: \"|\"."
                                                 }
                                             },
                                             "type": "object",
                                             "example": {
-                                                "sourceFile": "File not found."
+                                                "remoteFile": "Filename contains disallowed character: \"|\"."
                                             }
                                         }
                                     },
@@ -2129,7 +2186,7 @@
                                     "example": {
                                         "message": "Validation failed",
                                         "errors": {
-                                            "sourceFile": "File not found."
+                                            "remoteFile": "Filename contains disallowed character: \"|\"."
                                         }
                                     }
                                 }
@@ -2138,6 +2195,391 @@
                     }
                 },
                 "deprecated": true
+            }
+        },
+        "/stream-api/input-stream/offsets": {
+            "get": {
+                "tags": [
+                    "Stream API"
+                ],
+                "summary": "Read last committed input-stream offsets.",
+                "operationId": "stream_api_read_input_stream_offsets",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string",
+                                                    "example": "consumer-offsets"
+                                                },
+                                                "attributes": {
+                                                    "properties": {
+                                                        "offsets": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "properties": {
+                                                                    "partition": {
+                                                                        "type": "integer",
+                                                                        "example": 0,
+                                                                        "nullable": true
+                                                                    },
+                                                                    "offset": {
+                                                                        "type": "integer",
+                                                                        "example": 5
+                                                                    }
+                                                                },
+                                                                "type": "object",
+                                                                "example": {
+                                                                    "partition": 0,
+                                                                    "offset": 5
+                                                                }
+                                                            },
+                                                            "example": [
+                                                                {
+                                                                    "partition": 0,
+                                                                    "offset": 5
+                                                                },
+                                                                {
+                                                                    "partition": 1,
+                                                                    "offset": 5
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "type": "object",
+                                                    "example": {
+                                                        "offsets": [
+                                                            {
+                                                                "partition": 0,
+                                                                "offset": 5
+                                                            },
+                                                            {
+                                                                "partition": 1,
+                                                                "offset": 5
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "type": "consumer-offsets",
+                                                "attributes": {
+                                                    "offsets": [
+                                                        {
+                                                            "partition": 0,
+                                                            "offset": 5
+                                                        },
+                                                        {
+                                                            "partition": 1,
+                                                            "offset": 5
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "data": {
+                                            "type": "consumer-offsets",
+                                            "attributes": {
+                                                "offsets": [
+                                                    {
+                                                        "partition": 0,
+                                                        "offset": 5
+                                                    },
+                                                    {
+                                                        "partition": 1,
+                                                        "offset": 5
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Stream API commit offsets failed: "
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Stream API commit offsets failed: "
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "patch": {
+                "tags": [
+                    "Stream API"
+                ],
+                "summary": "Commit consumed offsets to input-stream.",
+                "operationId": "stream_api_commit_input_stream_offsets",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/stream_api_commit_input_stream_offsets_input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Stream API commit offsets failed: "
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Stream API commit offsets failed: "
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/stream-api/input-stream/items": {
+            "get": {
+                "tags": [
+                    "Stream API"
+                ],
+                "summary": "Read input-stream items.",
+                "operationId": "stream_api_read_input_stream_items",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Stream API read failed: "
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Stream API read failed: "
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/stream-api/stream-context": {
+            "get": {
+                "tags": [
+                    "Stream API"
+                ],
+                "summary": "Show the input and output stream identifiers bound to this run.",
+                "operationId": "stream_api_show_stream_context",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "",
+                                            "nullable": true
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "input_stream_id": {
+                                                    "type": "string",
+                                                    "example": "2"
+                                                },
+                                                "output_stream_id": {
+                                                    "type": "string",
+                                                    "example": "1"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "input_stream_id": "2",
+                                                "output_stream_id": "1"
+                                            }
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "",
+                                        "data": {
+                                            "input_stream_id": "2",
+                                            "output_stream_id": "1"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/stream-api/output-stream/items": {
+            "put": {
+                "tags": [
+                    "Stream API"
+                ],
+                "summary": "Write \"replace\" items to output stream.",
+                "operationId": "stream_api_write_replace_items_to_output_stream",
+                "responses": {
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Stream API write failed: "
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Stream API write failed: "
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "post": {
+                "tags": [
+                    "Stream API"
+                ],
+                "summary": "Write \"create\" items to output stream.",
+                "operationId": "stream_api_write_create_items_to_output_stream",
+                "responses": {
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Stream API write failed: "
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Stream API write failed: "
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "Stream API"
+                ],
+                "summary": "Write \"delete\" items to output stream.",
+                "operationId": "stream_api_write_delete_items_to_output_stream",
+                "responses": {
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Stream API write failed: "
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Stream API write failed: "
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "patch": {
+                "tags": [
+                    "Stream API"
+                ],
+                "summary": "Write \"update\" items to output stream.",
+                "operationId": "stream_api_write_update_items_to_output_stream",
+                "responses": {
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Stream API write failed: "
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Stream API write failed: "
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
             }
         },
         "/upload/to-transport": {
@@ -2168,11 +2610,32 @@
                                         "message": {
                                             "type": "string",
                                             "example": "File has been uploaded."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "key": {
+                                                    "type": "string",
+                                                    "example": "e99bb33727d33837fd1e/file?page=1"
+                                                },
+                                                "path": {
+                                                    "type": "string",
+                                                    "example": "https://transport.productsup.io/e99bb33727d33837fd1e/file?page=1"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "key": "e99bb33727d33837fd1e/file?page=1",
+                                                "path": "https://transport.productsup.io/e99bb33727d33837fd1e/file?page=1"
+                                            }
                                         }
                                     },
                                     "type": "object",
                                     "example": {
-                                        "message": "File has been uploaded."
+                                        "message": "File has been uploaded.",
+                                        "data": {
+                                            "key": "e99bb33727d33837fd1e/file?page=1",
+                                            "path": "https://transport.productsup.io/e99bb33727d33837fd1e/file?page=1"
+                                        }
                                     }
                                 }
                             }
@@ -2190,14 +2653,14 @@
                                         },
                                         "errors": {
                                             "properties": {
-                                                "sourceFile": {
+                                                "remoteFile": {
                                                     "type": "string",
-                                                    "example": "File not found."
+                                                    "example": "Filename contains disallowed character: \"|\"."
                                                 }
                                             },
                                             "type": "object",
                                             "example": {
-                                                "sourceFile": "File not found."
+                                                "remoteFile": "Filename contains disallowed character: \"|\"."
                                             }
                                         }
                                     },
@@ -2205,7 +2668,7 @@
                                     "example": {
                                         "message": "Validation failed",
                                         "errors": {
-                                            "sourceFile": "File not found."
+                                            "remoteFile": "Filename contains disallowed character: \"|\"."
                                         }
                                     }
                                 }
@@ -2282,6 +2745,26 @@
                                 }
                             }
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The items must have unique keys. Found duplicates: `name`,`Name`,` Name`."
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "The items must have unique keys. Found duplicates: `name`,`Name`,` Name`.",
+                                        "errors": []
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false
@@ -2344,27 +2827,13 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "Validation failed"
-                                        },
-                                        "errors": {
-                                            "properties": {
-                                                "data": {
-                                                    "type": "string",
-                                                    "example": "This value should be an array of items."
-                                                }
-                                            },
-                                            "type": "object",
-                                            "example": {
-                                                "data": "This value should be an array of items."
-                                            }
+                                            "example": "The items must not contain an empty column name."
                                         }
                                     },
                                     "type": "object",
                                     "example": {
-                                        "message": "Validation failed",
-                                        "errors": {
-                                            "data": "This value should be an array of items."
-                                        }
+                                        "message": "The items must not contain an empty column name.",
+                                        "errors": []
                                     }
                                 }
                             }
@@ -2439,27 +2908,13 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "Validation failed"
-                                        },
-                                        "errors": {
-                                            "properties": {
-                                                "data": {
-                                                    "type": "string",
-                                                    "example": "This value should be an array of items."
-                                                }
-                                            },
-                                            "type": "object",
-                                            "example": {
-                                                "data": "This value should be an array of items."
-                                            }
+                                            "example": "This connector does not have data store, and therefore can not write nested data."
                                         }
                                     },
                                     "type": "object",
                                     "example": {
-                                        "message": "Validation failed",
-                                        "errors": {
-                                            "data": "This value should be an array of items."
-                                        }
+                                        "message": "This connector does not have data store, and therefore can not write nested data.",
+                                        "errors": []
                                     }
                                 }
                             }
@@ -2612,25 +3067,46 @@
                     "source_file": "/example-subdirectory/example_file.txt"
                 }
             },
-            "write_log_input": {
+            "write_to_output_file_input": {
                 "properties": {
-                    "message": {
-                        "type": "string",
-                        "example": "Success message"
-                    },
-                    "context": {
+                    "meta": {
+                        "properties": {
+                            "separator": {
+                                "type": "string",
+                                "example": "-"
+                            }
+                        },
                         "type": "object",
                         "example": {
-                            "code": 10
+                            "separator": "-"
                         }
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "type": "object"
+                        },
+                        "example": [
+                            {
+                                "id": 1,
+                                "taxon-0-id": 11,
+                                "taxon-0-name": "taxon0"
+                            }
+                        ]
                     }
                 },
                 "type": "object",
                 "example": {
-                    "message": "Success message",
-                    "context": {
-                        "code": 10
-                    }
+                    "meta": {
+                        "separator": "-"
+                    },
+                    "data": [
+                        {
+                            "id": 1,
+                            "taxon-0-id": 11,
+                            "taxon-0-name": "taxon0"
+                        }
+                    ]
                 }
             },
             "write_nested_to_output_data_store_input": {
@@ -2752,6 +3228,27 @@
                     ]
                 }
             },
+            "write_log_input": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "example": "Success message"
+                    },
+                    "context": {
+                        "type": "object",
+                        "example": {
+                            "code": 10
+                        }
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "message": "Success message",
+                    "context": {
+                        "code": 10
+                    }
+                }
+            },
             "save_async_feedback_config_input": {
                 "required": [
                     "connector-config"
@@ -2798,13 +3295,13 @@
                     },
                     "remote_file": {
                         "type": "string",
-                        "example": "/remote-folder/remote_file.txt"
+                        "example": "file?page=1"
                     }
                 },
                 "type": "object",
                 "example": {
                     "source_file": "/example-subdirectory/example_file.txt",
-                    "remote_file": "/remote-folder/remote_file.txt"
+                    "remote_file": "file?page=1"
                 }
             },
             "store_to_transport_input": {
@@ -2815,13 +3312,107 @@
                     },
                     "remote_file": {
                         "type": "string",
-                        "example": "/remote-folder/remote_file.txt"
+                        "example": "file?page=1"
                     }
                 },
                 "type": "object",
                 "example": {
                     "source_file": "/example-subdirectory/example_file.txt",
-                    "remote_file": "/remote-folder/remote_file.txt"
+                    "remote_file": "file?page=1"
+                }
+            },
+            "stream_api_commit_input_stream_offsets_input": {
+                "properties": {
+                    "data": {
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "example": "consumer-offsets"
+                            },
+                            "attributes": {
+                                "properties": {
+                                    "offsets": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "partition": {
+                                                    "type": "integer",
+                                                    "example": 0,
+                                                    "nullable": true
+                                                },
+                                                "offset": {
+                                                    "type": "integer",
+                                                    "example": 5
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": {
+                                                "partition": 0,
+                                                "offset": 5
+                                            }
+                                        },
+                                        "example": [
+                                            {
+                                                "partition": 0,
+                                                "offset": 5
+                                            },
+                                            {
+                                                "partition": 1,
+                                                "offset": 5
+                                            }
+                                        ]
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "offsets": [
+                                        {
+                                            "partition": 0,
+                                            "offset": 5
+                                        },
+                                        {
+                                            "partition": 1,
+                                            "offset": 5
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "type": "object",
+                        "example": {
+                            "type": "consumer-offsets",
+                            "attributes": {
+                                "offsets": [
+                                    {
+                                        "partition": 0,
+                                        "offset": 5
+                                    },
+                                    {
+                                        "partition": 1,
+                                        "offset": 5
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "data": {
+                        "type": "consumer-offsets",
+                        "attributes": {
+                            "offsets": [
+                                {
+                                    "partition": 0,
+                                    "offset": 5
+                                },
+                                {
+                                    "partition": 1,
+                                    "offset": 5
+                                }
+                            ]
+                        }
+                    }
                 }
             },
             "upload_to_transport_input": {
@@ -2832,55 +3423,13 @@
                     },
                     "remote_file": {
                         "type": "string",
-                        "example": "/remote-folder/remote_file.txt"
+                        "example": "file?page=1"
                     }
                 },
                 "type": "object",
                 "example": {
                     "source_file": "/example-subdirectory/example_file.txt",
-                    "remote_file": "/remote-folder/remote_file.txt"
-                }
-            },
-            "write_to_output_file_input": {
-                "properties": {
-                    "meta": {
-                        "properties": {
-                            "separator": {
-                                "type": "string",
-                                "example": "-"
-                            }
-                        },
-                        "type": "object",
-                        "example": {
-                            "separator": "-"
-                        }
-                    },
-                    "data": {
-                        "type": "array",
-                        "items": {
-                            "type": "object"
-                        },
-                        "example": [
-                            {
-                                "id": 1,
-                                "taxon-0-id": 11,
-                                "taxon-0-name": "taxon0"
-                            }
-                        ]
-                    }
-                },
-                "type": "object",
-                "example": {
-                    "meta": {
-                        "separator": "-"
-                    },
-                    "data": [
-                        {
-                            "id": 1,
-                            "taxon-0-id": 11,
-                            "taxon-0-name": "taxon0"
-                        }
-                    ]
+                    "remote_file": "file?page=1"
                 }
             }
         }

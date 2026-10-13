@@ -2,6 +2,8 @@
 
 A sample Productsup connector written in C# targeting .NET 9.
 
+The connector communicates with the platform through the Container API. See the [Container API documentation](https://help.productsup.com/docs/connector-development/container-api) for details.
+
 ## Requirements
 
 - [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
@@ -12,6 +14,22 @@ A sample Productsup connector written in C# targeting .NET 9.
 ```bash
 cd src/ProductsupConnector
 dotnet run
+```
+
+## Commands
+
+The connector type is selected with the first argument (defaults to `data-service`):
+
+| Command        | Reads                                                  | Writes     |
+|----------------|--------------------------------------------------------|------------|
+| `datasource`   | — (generates `PRODUCTS` products, `BATCH` per request) | `output`   |
+| `data-service` | `input`                                                | `output`   |
+| `export`       | `input`                                                | `feedback` |
+| `export-delta` | `new`, `modified`, `unchanged`, `deleted`              | `feedback` |
+
+```bash
+dotnet run -- export
+dotnet ProductsupConnector.dll export-delta
 ```
 
 ## Run with Docker
