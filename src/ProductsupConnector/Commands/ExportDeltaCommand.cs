@@ -1,4 +1,3 @@
-using System.Text.Json.Nodes;
 using ProductsupConnector.ContainerApi;
 
 namespace ProductsupConnector.Commands;
@@ -18,17 +17,16 @@ public class ExportDeltaCommand
         foreach (var file in new[] { Files.New, Files.Modified, Files.Unchanged, Files.Deleted })
         {
             counts[file] = 0;
-            await foreach (var product in _client.ReadFile(file))
+            while (true)
             {
-                counts[file]++;
+                var products = await _client.NextBatch(file);
+                if (products.Count == 0)
+                    break;
+
+                counts[file] += products.Count;
             }
         }
 
-        await _client.AppendToFeedback(new JsonObject
-        {
-            ["status"] = "success",
-            ["message"] = "Finished export delta.",
-        });
         await _client.Log(Level.Info,
             $"Finished export delta. New: {counts[Files.New]}, modified: {counts[Files.Modified]}, " +
             $"unchanged: {counts[Files.Unchanged]}, deleted: {counts[Files.Deleted]}.");

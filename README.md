@@ -1,12 +1,12 @@
 # Sample Connector (C#)
 
-A sample Productsup connector written in C# targeting .NET 9.
+A sample Productsup connector written in C# targeting .NET 10.
 
 The connector communicates with the platform through the Container API. See the [Container API documentation](https://help.productsup.com/docs/connector-development/container-api) for details.
 
 ## Requirements
 
-- [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
 - Docker (optional)
 
 ## Run locally
