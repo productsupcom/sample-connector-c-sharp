@@ -46,14 +46,31 @@ public class ContainerApiClient
         return response.Data.OfType<JsonElement>().Select(item => JsonSerializer.SerializeToNode(item)!).ToList();
     }
 
-    public async Task Log(Level level, string message)
+    public async Task Log(LogLevel level, string message)
     {
         await _api.Logs(level, new Add_log_input(context: new { }, message: message));
     }
 
-    public async Task Notify(Level2 level, string message)
+    public async Task Notify(NotificationLevel level, string message)
     {
         await _api.Notifications(level, new Add_notification_input(context: new { }, message: message));
+    }
+
+    /// <summary>
+    /// Writes the message to the log and sends it to the user as a notification, both with the same level.
+    /// </summary>
+    public async Task LogAndNotify(NotificationLevel level, string message)
+    {
+        var logLevel = level switch
+        {
+            NotificationLevel.Notice => LogLevel.Notice,
+            NotificationLevel.Warning => LogLevel.Warning,
+            NotificationLevel.Error => LogLevel.Error,
+            _ => LogLevel.Info, // Info, and Success which logs don't have
+        };
+
+        await Log(logLevel, message);
+        await Notify(level, message);
     }
 
     public async Task WriteOutputBatch(List<JsonNode> products)

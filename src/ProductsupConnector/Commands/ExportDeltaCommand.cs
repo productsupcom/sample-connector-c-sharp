@@ -1,5 +1,3 @@
-using ProductsupConnector.ContainerApi;
-
 namespace ProductsupConnector.Commands;
 
 public class ExportDeltaCommand
@@ -27,7 +25,7 @@ public class ExportDeltaCommand
             }
         }
 
-        await _client.Log(Level.Info,
+        await _client.LogAndNotify(NotificationLevel.Success,
             $"Finished export delta. New: {counts[Files.New]}, modified: {counts[Files.Modified]}, " +
             $"unchanged: {counts[Files.Unchanged]}, deleted: {counts[Files.Deleted]}.");
     }

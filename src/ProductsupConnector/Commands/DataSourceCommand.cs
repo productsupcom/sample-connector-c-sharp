@@ -1,5 +1,4 @@
 using System.Text.Json.Nodes;
-using ProductsupConnector.ContainerApi;
 
 namespace ProductsupConnector.Commands;
 
@@ -27,7 +26,7 @@ public class DataSourceCommand
             await _client.WriteOutputBatch(products);
         }
 
-        await _client.Log(Level.Info, $"Finished datasource. Products: {totalProducts}.");
+        await _client.LogAndNotify(NotificationLevel.Success, $"Finished datasource. Products: {totalProducts}.");
     }
 
     private static JsonNode GenerateProduct(int index)

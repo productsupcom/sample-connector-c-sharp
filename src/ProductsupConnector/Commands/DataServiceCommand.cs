@@ -1,5 +1,3 @@
-using ProductsupConnector.ContainerApi;
-
 namespace ProductsupConnector.Commands;
 
 public class DataServiceCommand
@@ -27,6 +25,6 @@ public class DataServiceCommand
             count += products.Count;
         }
 
-        await _client.Log(Level.Info, $"Finished data service. Products: {count}.");
+        await _client.LogAndNotify(NotificationLevel.Success, $"Finished data service. Products: {count}.");
     }
 }
